@@ -97,15 +97,22 @@ print(oddelovac2)                                                               
 print(f"Welcome to the app, {str_username}")
 print(f"We have 3 texts to be analyzed.")
 print(oddelovac2)
-cislo_textu = int(input("Enter a number between 1 and 3:")) - 1                  #posunuti indexu v TEXTS
+
+try:
+    cislo_textu = int(input("Vloz cele cislo mezi 1 a 3:")) - 1                 #posunuti indexu v TEXTS
+    if cislo_textu not in range(3):
+        print("Nebyla vybrana povolena hodnota, konec programu!")
+        exit()
+except:
+    print("Nebyla vybrana povolena hodnota, konec programu!")
+    exit()
+
 print(oddelovac2)
-
-
 text = TEXTS[int(cislo_textu)].split()                                           #vyber zadaneho textu
-
+nove_slovo = []
 #unifikace textu - odstraneni nezadoucich znaku
 for slovo in (text):
-    text_unified.append(slovo.strip(",.:;"))
+    text_unified.append(slovo.strip(",.:;+-*+ˇ"))
 
 #vyhodnoceni velikosti pismen a soucet cisel
 
