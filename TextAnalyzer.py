@@ -109,10 +109,11 @@ except:
 
 print(oddelovac2)
 text = TEXTS[int(cislo_textu)].split()                                           #vyber zadaneho textu
-nove_slovo = []
+
 #unifikace textu - odstraneni nezadoucich znaku
 for slovo in (text):
-    text_unified.append(slovo.strip(",.:;+-*+ˇ"))
+    if slovo.strip(",.:;").isalpha():
+        text_unified.append(slovo.strip(",.:;"))
 
 #vyhodnoceni velikosti pismen a soucet cisel
 
